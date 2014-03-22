@@ -67,6 +67,12 @@ form input{
 	text-align: center;
 }
 
+.pure-button{
+	padding: 5px;
+	margin: 5px;
+	font-size: .5em;
+}
+
 #error_placeholder{
 	font-size: .5em;
 	color: #545454;
@@ -132,11 +138,19 @@ form #moviesubmit{
 	width: 180px;
 }
 
+.posterconfirmation{
+	height: 100px;
+}
+
 h1{
 	font-family: 'Audiowide';
 	color: #30182B;
 	font-size: 1.5em;
 	text-transform: uppercase;
+}
+
+#winner_output{
+	padding:0px;
 }
 
 h3{
@@ -146,9 +160,23 @@ h3{
 	padding-bottom: 15px;
 }
 
-form input{
+.pure-form input[type=text]{
 	display: block;
 	margin: auto;
+}
+
+#criticschoice{
+	display: block;
+	margin: auto;
+	padding: 1px 0px 20px 0px;
+	width: 100%;
+}
+
+#audienceschoice{
+	display: block;
+	margin: auto;
+	padding: 1px 0px 20px 0px;
+	width: 100%;
 }
 
 }

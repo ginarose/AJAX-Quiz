@@ -4,12 +4,14 @@ $('#confirm').hide();
 $('#output').hide();
 $('#clearmovies').click(function()
 	{
-		console.log("It's doing something?");
 		$('#moviesubmit')[0].reset();
 		$('#confirm').hide(200);
 	});
+$('#reset').click(function() {
+    location.reload();
+});
 
-$('#moviesubmit').submit(function() {
+$('#findmovies').click(function() {
 	//grab values of movie titles from input boxes
 	var movie1title = $('#movie1').val();
 	var movie2title = $('#movie2').val();
@@ -33,8 +35,8 @@ $('#moviesubmit').submit(function() {
 		//movie poster placeholders
 		var posterm1 = "blah";
 		var posterm2 = "blah";
-		var criticswinnerposter = "bllaaaah";
-		var audiencewinnerposter = "blahbity";
+		var criticswinnerposter = "img/tie.jpg";
+		var audiencewinnerposter = "img/tie.jpg";
 		//score placeholders
 		var audiencescorem1 = 55;
 		var audiencescorem2 = 5;
@@ -73,23 +75,16 @@ $('#moviesubmit').submit(function() {
 						},
 					});
 					
-	$('#comparemovies').click(function(){
-		$('#confirm').fadeOut(200);
-		$('#input').fadeOut(200);
-		$('#output').fadeIn(500);
-		compareAudienceScores();
-		compareCriticScores();
-		$('#criticschoiceposter').attr("src",criticswinnerposter).css("display", "inline");
-		$('#audienceschoiceposter').attr("src",audiencewinnerposter).css("display", "inline");
-		$('#winner_output').html("<h2>Here are the results:</h2> " + audiencewinner + criticwinner);
-	})
-	// //run function that compares the scores
-	// compareAudienceScores();
-	// compareCriticScores();
-	// //run function that displays them
-	// displayMovieText();
-				
-				
+		$('#comparemovies').click(function(){
+			$('#confirm').fadeOut(200);
+			$('#input').fadeOut(200);
+			$('#output').fadeIn(500);
+			compareAudienceScores();
+			compareCriticScores();
+			$('#criticschoiceposter').attr("src",criticswinnerposter).css("display", "inline");
+			$('#audienceschoiceposter').attr("src",audiencewinnerposter).css("display", "inline");
+			$('#winner_output').html("<h2>Here are the results:</h2> " + audiencewinner + criticwinner);
+		})		
 
 				},
 			});
@@ -100,7 +95,6 @@ event.preventDefault();
 
 
 //FUNCTIONS
-
 	//function that determines the winner of the audience's heart
 	function compareAudienceScores(){
 			if (audiencescorem1>audiencescorem2){
@@ -115,7 +109,6 @@ event.preventDefault();
 				audiencewinner = "<p>The audience liked both movies the same! WHOA.</p>"
 			}
 	};
-
 	//function that determines the winner of the critics's heart
 	function compareCriticScores(){
 			if (criticscorem1>criticscorem2){
@@ -131,8 +124,5 @@ event.preventDefault();
 			}
 	};
 	}
-
 	});
-
-
 });

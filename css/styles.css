@@ -1,0 +1,127 @@
+body{
+	background: url('../img/background.png') repeat;
+	font-family: Courier;
+}
+
+#content{
+	background-color: #f0f1bc;
+	width: 50%;
+	margin: auto;
+	padding: 20px;
+}
+
+#header{
+	display: block;
+	margin: auto;
+	width: auto;
+	text-align: center;
+}
+
+h1{
+	font-family: 'Audiowide';
+	color: #30182B;
+	font-size: 2.5em;
+	text-transform: uppercase;
+	letter-spacing: .3em;
+}
+
+h2{
+	font-family: Courier, cursive;
+	font-size: 1em;
+	width: 79%;
+	margin: 30px auto;
+	background-color: rgba(255,255,255,0.5);
+	padding: 15px 0px;
+	text-transform: uppercase;
+}
+
+h3{
+	font-family: Courier, cursive;
+	font-size: 1em;
+	color: #30182B;
+}
+
+
+#body{
+	text-align: center;
+}
+
+form{
+	font-family: 'Audiowide';
+	font-size: 1.5em;
+	background-color: #60F0C0;
+	width: 100%;
+	margin: auto;
+	padding: 30px 0px;
+}
+
+form input{
+	font-family: 'Audiowide';
+	font-size: .5em;
+	text-align: center;
+
+}
+
+#loading{
+	text-align: center;
+	font-family: Courier;
+	font-size: .7em;
+}
+
+#winner_output{
+	font-family: Courier;
+	font-size: 1em;
+	padding: 10px;
+}
+
+.movietitleoutput{
+	text-transform: capitalize;
+	font-family: 'Audiowide';
+	font-size: 1em;
+}
+
+#criticschoice{
+	display: inline-block;
+	width: 45%;
+	background-color: #cecece;
+	height: 300px;
+	margin: 10px;
+}
+
+#audienceschoice{
+	display: inline-block;
+	width: 45%;
+	background-color: #cecece;
+	height: 300px;
+	margin: 10px;
+}
+
+/*Mobile view*/
+@media (max-width: 778px){
+
+form #moviesubmit{
+	width: 180px;
+}
+
+h1{
+	font-family: 'Audiowide';
+	color: #30182B;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+
+h3{
+	font-size: .7em;
+	width: 75%;
+	margin: auto;
+	padding-bottom: 15px;
+}
+
+form input{
+	display: block;
+	margin: auto;
+}
+
+
+
+}

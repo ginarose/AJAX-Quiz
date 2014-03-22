@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Assignment 01 AJAX – Gina Piscitelli</title>
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+ </head>
+ <body>
+<div id="content">
+		<div id="header"><h1>Resolution</h1><h3>(a smart decision-making engine for movie-goers)</h3>
+		</div>
+
+		<div id="body">
+			<!-- User inputs the two movies they want to use -->
+			<div id="input">
+				<form id="moviesubmit" class="pure-form">
+					<input type="text" placeholder="Movie 1" id="movie1"> vs. <input type="text" placeholder="Movie 2" id="movie2">
+					<br/>
+					<input type="submit" value="Find Movies">
+				</form>
+			</div>
+			<!-- Loading animation -->
+			<div id="loading">&nbsp;</div>
+			<!-- User confirms (by movie poster) that the movies are correct -->
+			<div id="confirm">
+				<p><img src=""> vs <img src=""></p>
+				<p>Are these the movies you want to compare?</p>
+				<input type="submit" id="clearmovies" value="Clear"><input type="submit" id="comparemovies" value="Continue">
+			</div>	
+			<!-- User is shown winning movies -->
+			<div id="output">
+				<div id="criticschoice">Hello world</div>
+				<div id="audienceschoice">Greetings universe</div>
+				<p id="winner_output">Input two movies above to determine which is "better," according to the audience and critics reviews on Rotten Tomatoes.</p></div>
+		</div>
+</div>
+ </body>
+</html>

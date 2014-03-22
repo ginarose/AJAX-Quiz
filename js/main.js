@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 $('#confirm').hide();
+$('#output').hide();
 $('#clearmovies').click(function()
 	{
 		console.log("It's doing something?");
@@ -15,7 +16,7 @@ $('#moviesubmit').submit(function() {
 
 	if (movie1title == '' || movie2title == ''){
 		//produce error if there aren't two movies inputted
-		$('#winner_output').html("You haven't inputted two movies to compare! Try again, man.");
+		$('#error_placeholder').html("You haven't inputted two movies to compare!");
 		event.preventDefault();
 	}
 	
@@ -32,6 +33,8 @@ $('#moviesubmit').submit(function() {
 		//movie poster placeholders
 		var posterm1 = "blah";
 		var posterm2 = "blah";
+		var criticswinnerposter = "bllaaaah";
+		var audiencewinnerposter = "blahbity";
 		//score placeholders
 		var audiencescorem1 = 55;
 		var audiencescorem2 = 5;
@@ -70,6 +73,16 @@ $('#moviesubmit').submit(function() {
 						},
 					});
 					
+	$('#comparemovies').click(function(){
+		$('#confirm').fadeOut(200);
+		$('#input').fadeOut(200);
+		$('#output').fadeIn(500);
+		compareAudienceScores();
+		compareCriticScores();
+		$('#criticschoiceposter').attr("src",criticswinnerposter).css("display", "inline");
+		$('#audienceschoiceposter').attr("src",audiencewinnerposter).css("display", "inline");
+		$('#winner_output').html("<h2>Here are the results:</h2> " + audiencewinner + criticwinner);
+	})
 	// //run function that compares the scores
 	// compareAudienceScores();
 	// compareCriticScores();
@@ -92,9 +105,11 @@ event.preventDefault();
 	function compareAudienceScores(){
 			if (audiencescorem1>audiencescorem2){
 				audiencewinner = "<p>According to the audience, the winner is <span class='movietitleoutput'>" + simplem1tempURI +"</span>.</p>";
+				audiencewinnerposter = posterm1;
 			}
 			else if (audiencescorem2>audiencescorem1){
 				audiencewinner = "<p>According to the audience, the winner is <span class='movietitleoutput'>" + simplem2tempURI +"</span>.</p>";
+				audiencewinnerposter = posterm2;
 			}
 			else {
 				audiencewinner = "<p>The audience liked both movies the same! WHOA.</p>"
@@ -105,25 +120,15 @@ event.preventDefault();
 	function compareCriticScores(){
 			if (criticscorem1>criticscorem2){
 				criticwinner = "<p>According to the critics, the winner is <span class='movietitleoutput'>" + simplem1tempURI +"</span>.</p>";
+				criticswinnerposter = posterm1;
 			}
 			else if (criticscorem2>criticscorem1){
 				criticwinner = "<p>According to the critics, the winner is <span class='movietitleoutput'>" + simplem2tempURI +"</span>.</p>";
+				criticswinnerposter = posterm2;
 			}
 			else {
 				criticwinner = "<p>The critics liked both movies the same! WHOA.</p>"
 			}
-	};
-
-
-
-	//Text to support final decision
-	function displayMovieText(){
-				//remove loading paragraph
-			$('#loading').html(" ");
-
-			//confirm movie titles
-			$('#winner_output').html("You have chosen <span class='movietitleoutput'>"+ simplem1tempURI +"</span> to rank against <span class='movietitleoutput'>"+simplem2tempURI+"</span>. <h2>Here are the results:</h2> " + audiencewinner + criticwinner);
-			// console.log(simplem2URI);
 	};
 	}
 

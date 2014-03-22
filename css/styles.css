@@ -68,6 +68,10 @@ form input{
 	font-size: .7em;
 }
 
+.posterconfirmation{
+	height: 250px;
+}
+
 #winner_output{
 	font-family: Courier;
 	font-size: 1em;

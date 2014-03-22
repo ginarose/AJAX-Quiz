@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
+$('#confirm').hide();
 $('#clearmovies').click(function()
 	{
 		console.log("It's doing something?");
 		$('#moviesubmit')[0].reset();
+		$('#confirm').hide(200);
 	});
 
 $('#moviesubmit').submit(function() {
@@ -19,6 +21,7 @@ $('#moviesubmit').submit(function() {
 	
 	else{
 		$('#loading').html("<p id='loading'><img src='img/loading.GIF'><br/><br/>Your information is coming, be patient!</p>");
+		$('#confirm').fadeIn(500);
 		//strip extra characters from movie titles to better match API data
 		var simplem1temp = movie1title.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '');
 		var simplem1tempURI = simplem1temp.replace(/\s{2,}/g," ");
@@ -28,7 +31,7 @@ $('#moviesubmit').submit(function() {
 		var simplem2URI = simplem2tempURI.replace(" ", "%20");
 		//movie poster placeholders
 		var posterm1 = "blah";
-		var posterm1 = "blah";
+		var posterm2 = "blah";
 		//score placeholders
 		var audiencescorem1 = 55;
 		var audiencescorem2 = 5;
@@ -44,7 +47,8 @@ $('#moviesubmit').submit(function() {
 				dataType:  "jsonp",
 				success:function(json){
 					//pulls the movie poster
-					posterm1 = json.movies[0].detailed;
+					posterm1 = json.movies[0].posters.detailed;
+					$('#poster1').attr("src",posterm1);
 					//pulls the audience's scores for the movie
 					audiencescorem1 = json.movies[0].ratings.audience_score;
 					//pulls the critic's scores for the movie
@@ -56,18 +60,24 @@ $('#moviesubmit').submit(function() {
 						dataType:  "jsonp",
 						success:function(json){
 							//pulls the movie poster
-							posterm1 = json.movies[0].detailed;
+							posterm2 = json.movies[0].posters.detailed;
+							$('#poster2').attr("src",posterm2);
 							//pulls the audience's scores for the movie
 							audiencescorem2 = json.movies[0].ratings.audience_score;
 							//pulls the critic's scores for the movie
 							criticscorem2 = json.movies[0].ratings.critics_score;
-							//run function that compares the scores
-							compareAudienceScores();
-							compareCriticScores();
-							//run function that displays them
-							displayMovieText();
+							$('#loading').html("");
 						},
 					});
+					
+	// //run function that compares the scores
+	// compareAudienceScores();
+	// compareCriticScores();
+	// //run function that displays them
+	// displayMovieText();
+				
+				
+
 				},
 			});
 
